@@ -1,0 +1,21 @@
+/* Tailwind v4 — chi import theme + utilities, KHONG import preflight de khong
+   lam giao dien cu (custom CSS) bi reset. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Quet ca HTML tuy tinh va JS tao DOM dong de tailwind sinh day du class. */
+@source "../public/**/*.{html,js}";
+
+@theme {
+  --color-brand: #ff7a1a;
+  --color-brand-2: #ffa04d;
+  --color-ink: #0a0e14;
+  --color-panel: #111a26;
+  --color-panel-2: #16212f;
+  --color-line: #1e2c3d;
+  --color-muted: #8ba0b7;
+  --color-good: #3ddc8c;
+  --color-warn: #ffc857;
+  --color-bad: #ff6161;
+}

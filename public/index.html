@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Naruto Bot — Quản lý tài khoản</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff7a1a'/%3E%3Cpath d='M32 11l6 15 15 6-15 6-6 15-6-15-15-6 15-6z' fill='%230b0f14'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round">
+              <path d="M12 2.6l3.1 6.3 6.3 3.1-6.3 3.1L12 21.4l-3.1-6.3L2.6 12l6.3-3.1z" />
+              <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <div class="brand-text">
+            <strong>Naruto Bot</strong>
+            <small>Alpha · S1</small>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Điều hướng">
+          <button class="nav-item active" type="button" data-view="accounts" aria-current="page">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <circle cx="12" cy="8" r="3.4" />
+                <path d="M4.8 20c.7-3.6 3.6-5.6 7.2-5.6s6.5 2 7.2 5.6" />
+              </svg>
+            </span>
+            <span>Tài khoản</span>
+          </button>
+          <button class="nav-item" type="button" data-view="dashboard">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.5" y="3.5" width="7" height="7" rx="1.6" />
+                <rect x="13.5" y="3.5" width="7" height="7" rx="1.6" />
+                <rect x="3.5" y="13.5" width="7" height="7" rx="1.6" />
+                <rect x="13.5" y="13.5" width="7" height="7" rx="1.6" />
+              </svg>
+            </span>
+            <span>Tổng quan</span>
+          </button>
+          <button class="nav-item" type="button" data-view="daily">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="5" width="16" height="15" rx="3" />
+                <path d="M8 3v4M16 3v4M4 10h16" />
+                <path d="M8.5 14.5l2 2 4-4" />
+              </svg>
+            </span>
+            <span>Daily</span>
+          </button>
+          <button class="nav-item" type="button" data-view="training">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
+                <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" />
+                <path d="M8.5 7.5h7M8.5 11h5" />
+              </svg>
+            </span>
+            <span>Huấn luyện</span>
+          </button>
+          <button class="nav-item" type="button" data-view="boss">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 4.5c.9 5.2 2.4 8.7 4.8 11.7M9.4 3.8c.7 5.3 1.9 8.9 3.7 12.4M13.8 4.2c.3 4.8 1.2 8.2 2.7 11.8" />
+                <path d="M5.4 18.2c1.8 1.7 4 2.6 6.6 2.6s4.8-.9 6.6-2.6" />
+              </svg>
+            </span>
+            <span>Boss</span>
+          </button>
+          <button class="nav-item" type="button" data-view="pvp">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 4.5l13 13M19.5 4.5l-13 13" />
+                <path d="M14.5 4.5h5v5M9.5 4.5h-5v5" />
+                <path d="M4.5 19.5l4-4M19.5 19.5l-4-4" />
+              </svg>
+            </span>
+            <span>PvP</span>
+          </button>
+          <button class="nav-item" type="button" data-view="team">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="8" r="3" />
+                <circle cx="17" cy="9" r="2.2" />
+                <path d="M3.5 19c.5-3.2 2.6-5 5.5-5s5 1.8 5.5 5" />
+                <path d="M14.5 19c.3-2.3 1.7-3.7 3.5-3.7s3.2 1.4 3.5 3.7" />
+              </svg>
+            </span>
+            <span>Đội hình</span>
+          </button>
+          <button class="nav-item" type="button" data-view="bag">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5.5 8.5h13l-1 11a2 2 0 0 1-2 1.8h-7a2 2 0 0 1-2-1.8z" />
+                <path d="M9 8.5V6.8a3 3 0 0 1 6 0v1.7" />
+                <path d="M9.5 13h5" />
+              </svg>
+            </span>
+            <span>Túi đồ</span>
+          </button>
+          <button class="nav-item" type="button" data-view="gacha">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8.5" />
+                <circle cx="12" cy="12" r="2" />
+                <path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5M6 6l3.2 3.2M14.8 14.8L18 18M18 6l-3.2 3.2M9.2 14.8L6 18" />
+              </svg>
+            </span>
+            <span>Quay ninja</span>
+          </button>
+          <button class="nav-item" type="button" data-view="craftment">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 4.5l5 5M4 20l4.5-1 10-10-3.5-3.5-10 10z" />
+                <path d="M13 7l4 4M5 19l2-2" />
+              </svg>
+            </span>
+            <span>Craftment</span>
+          </button>
+          <button class="nav-item" type="button" data-view="logs">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <path d="M5 6h14M5 12h14M5 18h9" />
+              </svg>
+            </span>
+            <span>Nhật ký</span>
+          </button>
+          <button class="nav-item" type="button" data-view="advisor">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8.5" />
+                <path d="M15.2 8.8l-2 4.4-4.4 2 2-4.4z" />
+              </svg>
+            </span>
+            <span>Cố vấn</span>
+          </button>
+          <button class="nav-item" type="button" data-view="bot">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4.5" y="8" width="15" height="11" rx="3" />
+                <path d="M12 8V5" />
+                <circle cx="12" cy="4" r="1" />
+                <circle cx="9.2" cy="13" r="1" fill="currentColor" stroke="none" />
+                <circle cx="14.8" cy="13" r="1" fill="currentColor" stroke="none" />
+                <path d="M9.8 16.3h4.4" />
+              </svg>
+            </span>
+            <span>Bot</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-foot">
+          <div class="mini-stat">
+            <span id="sideTotal">0</span>
+            <small>tài khoản đã lưu</small>
+          </div>
+          <p class="disclaimer">
+            Chỉ dùng cho tài khoản bạn sở hữu. Giữ nhịp request thấp khi thử nghiệm.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main">
+
+        <header class="top-account-nav" id="globalAccountBar" aria-label="Tài khoản đang dùng" hidden></header>
+        <section class="view" id="view-accounts" data-view="accounts">
+          <header class="topbar">
+            <div>
+              <h1>Quản lý tài khoản</h1>
+              <p>Thêm thủ công tài khoản game và theo dõi trạng thái đăng nhập.</p>
+            </div>
+            <button class="btn btn-primary" id="btnAdd" type="button">
+              <span class="btn-plus">+</span> Thêm tài khoản
+            </button>
+          </header>
+
+          <section class="stats" aria-label="Thống kê tài khoản">
+            <article class="stat-card">
+              <span class="stat-label">Tổng cộng</span>
+              <strong class="stat-value" id="statTotal">0</strong>
+              <span class="stat-note">tài khoản</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Hoạt động</span>
+              <strong class="stat-value text-green" id="statActive">0</strong>
+              <span class="stat-note">đang có phiên</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Auto bật</span>
+              <strong class="stat-value text-orange" id="statAuto">0</strong>
+              <span class="stat-note">đang chạy tự động</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Chưa đăng nhập</span>
+              <strong class="stat-value" id="statNew">0</strong>
+              <span class="stat-note">chờ đăng nhập</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Lỗi / Đã tắt</span>
+              <strong class="stat-value text-red" id="statProblem">0</strong>
+              <span class="stat-note">cần xem lại</span>
+            </article>
+          </section>
+
+          <section class="panel">
+            <div class="toolbar">
+              <div class="search">
+                <span class="search-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+                    <circle cx="11" cy="11" r="6" />
+                    <path d="M15.5 15.5L20 20" />
+                  </svg>
+                </span>
+                <input
+                  id="search"
+                  type="search"
+                  placeholder="Tìm theo tài khoản, nhân vật, guild…"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="chips" id="filters" role="group" aria-label="Lọc theo trạng thái">
+                <button class="chip active" data-status="all" type="button">Tất cả</button>
+                <button class="chip" data-status="active" type="button">Hoạt động</button>
+                <button class="chip" data-status="new" type="button">Chưa đăng nhập</button>
+                <button class="chip" data-status="error" type="button">Lỗi</button>
+                <button class="chip" data-status="disabled" type="button">Đã tắt</button>
+              </div>
+            </div>
+
+            <div class="cards-area">
+              <div class="account-grid" id="accountGrid"></div>
+
+              <div class="empty" id="emptyState" hidden>
+                <div class="empty-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <path d="M12 2.6l3.1 6.3 6.3 3.1-6.3 3.1L12 21.4l-3.1-6.3L2.6 12l6.3-3.1z" />
+                    <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+                  </svg>
+                </div>
+                <h3 id="emptyTitle">Chưa có tài khoản nào</h3>
+                <p id="emptyText">Thêm tài khoản đầu tiên để bắt đầu quản lý và chạy bot.</p>
+                <button class="btn btn-primary" id="btnEmptyAdd" type="button">+ Thêm tài khoản</button>
+              </div>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="resultCount">0 tài khoản</span>
+              <span class="hint">Mật khẩu và session token được mã hóa AES-256-GCM.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-dashboard" data-view="dashboard" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Tổng quan</h1>
+              <p>Trạng thái tài khoản, việc nên làm và lịch hoạt động trong ngày. Chỉ đọc, không thay đổi dữ liệu game.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnDashboardRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="team-toolbar">
+              <span class="dash-readonly">Chỉ đọc</span>
+              <span class="team-synced" id="dashboardSynced"></span>
+            </div>
+
+            <div class="dash-body" id="dashboardBody"></div>
+
+            <div class="empty" id="dashboardEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3.5" y="3.5" width="7" height="7" rx="1.6" />
+                  <rect x="13.5" y="3.5" width="7" height="7" rx="1.6" />
+                  <rect x="3.5" y="13.5" width="7" height="7" rx="1.6" />
+                  <rect x="13.5" y="13.5" width="7" height="7" rx="1.6" />
+                </svg>
+              </div>
+              <h3 id="dashboardEmptyTitle">Chưa có tài khoản</h3>
+              <p id="dashboardEmptyText">Thêm và đăng nhập một tài khoản để xem tổng quan.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="dashboardFoot">Chọn tài khoản để xem tổng quan.</span>
+              <span class="hint">Dữ liệu đọc trực tiếp từ game, không tự nhận thưởng.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-daily" data-view="daily" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Daily</h1>
+              <p>Các hoạt động nhận thưởng hằng ngày. Chỉ nhận mục miễn phí, không tiêu Kim cương.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnDailyRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="daily-toolbar">
+              <div class="daily-actions">
+                <span class="daily-synced" id="dailySynced"></span>
+                <button class="btn btn-primary" id="btnClaimAll" type="button" disabled>
+                  Nhận tất cả
+                </button>
+              </div>
+            </div>
+
+            <div class="daily-summary" id="dailySummary" hidden></div>
+            <div class="daily-list" id="dailyList"></div>
+
+            <div class="empty" id="dailyEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="5" width="16" height="15" rx="3" />
+                  <path d="M8 3v4M16 3v4M4 10h16" />
+                  <path d="M8.5 14.5l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 id="dailyEmptyTitle">Chưa có tài khoản</h3>
+              <p id="dailyEmptyText">Thêm và đăng nhập một tài khoản để xem hoạt động daily.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="dailyFoot">Chọn tài khoản để xem trạng thái nhận thưởng.</span>
+              <span class="hint">Mỗi mục được kiểm tra lại ngay trước khi nhận.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-training" data-view="training" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Huấn luyện</h1>
+              <p>Cốt truyện, Động huấn luyện và Thử thách tối thượng. Không tiêu Kim cương, không mua lượt.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnTrainingRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="train-toolbar">
+              <div class="train-tabs" id="trainingTabs" role="tablist" aria-label="Mục huấn luyện">
+                <button class="train-tab active" data-tab="story" type="button" role="tab" aria-selected="true">Cốt truyện</button>
+                <button class="train-tab" data-tab="dungeon" type="button" role="tab" aria-selected="false">Động huấn luyện</button>
+                <button class="train-tab" data-tab="ultimate" type="button" role="tab" aria-selected="false">Thử thách tối thượng</button>
+              </div>
+              <span class="train-synced" id="trainingSynced"></span>
+            </div>
+
+            <div class="train-panels">
+              <section class="train-panel" id="trainingStory" data-panel="story"></section>
+              <section class="train-panel" id="trainingDungeon" data-panel="dungeon" hidden></section>
+              <section class="train-panel" id="trainingUltimate" data-panel="ultimate" hidden></section>
+            </div>
+
+            <div class="empty" id="trainingEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
+                  <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" />
+                </svg>
+              </div>
+              <h3 id="trainingEmptyTitle">Chưa có tài khoản</h3>
+              <p id="trainingEmptyText">Thêm và đăng nhập một tài khoản để dùng tab Huấn luyện.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="trainingFoot">Chọn tài khoản để xem huấn luyện.</span>
+              <span class="hint">Chỉ dùng vật phẩm hồi năng lượng có sẵn. Không mua bằng Vàng/Kim cương.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-boss" data-view="boss" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Boss</h1>
+              <p>Vĩ Thú và Guild Boss. Mỗi lần một hit, tự chờ cooldown. Không tiêu Kim cương.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnBossRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="boss-toolbar">
+              <span class="boss-synced" id="bossSynced"></span>
+            </div>
+
+            <div class="boss-summary" id="bossSummary" hidden></div>
+
+            <div class="boss-body">
+              <div class="empty" id="bossEmpty" hidden>
+                <div class="empty-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 4.5c.9 5.2 2.4 8.7 4.8 11.7M9.4 3.8c.7 5.3 1.9 8.9 3.7 12.4M13.8 4.2c.3 4.8 1.2 8.2 2.7 11.8" />
+                    <path d="M5.4 18.2c1.8 1.7 4 2.6 6.6 2.6s4.8-.9 6.6-2.6" />
+                  </svg>
+                </div>
+                <h3 id="bossEmptyTitle">Chưa có tài khoản</h3>
+                <p id="bossEmptyText">Thêm và đăng nhập một tài khoản để dùng tab Boss.</p>
+              </div>
+
+              <div class="daily-loading" id="bossLoading" hidden>
+                <span class="spinner"></span>
+                Đang tải…
+              </div>
+
+              <div id="bossError" hidden></div>
+
+              <div class="boss-grid" id="bossState" hidden>
+                <section class="boss-card" id="bossBeastCard">
+                  <div class="empty boss-card-empty" id="bossBeastEmpty" hidden>
+                    <div class="empty-mark" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="15.5" rx="5" ry="4" />
+                        <circle cx="6" cy="10" r="1.8" />
+                        <circle cx="10" cy="6.6" r="1.8" />
+                        <circle cx="14" cy="6.6" r="1.8" />
+                        <circle cx="18" cy="10" r="1.8" />
+                      </svg>
+                    </div>
+                    <h3>Chưa đọc được Vĩ Thú</h3>
+                    <p>Game chưa trả về dữ liệu Vĩ Thú. Thử làm mới sau.</p>
+                  </div>
+
+                  <div class="boss-card-inner" id="bossBeastContent">
+                    <header class="boss-card-head">
+                      <div class="boss-portrait" id="bossBeastPortrait"></div>
+                      <div class="boss-ident">
+                        <div class="boss-title-row">
+                          <h3 id="bossBeastName">Vĩ Thú Tập Kích</h3>
+                          <span class="boss-badge" id="bossBeastStatus"></span>
+                        </div>
+                        <p id="bossBeastMeta"></p>
+                      </div>
+                    </header>
+
+                    <div class="boss-card-body">
+                      <div class="boss-countdown" id="bossBeastCountdown" data-boss-countdown="beast"></div>
+
+                      <div class="boss-hp">
+                        <div class="boss-hp-head">
+                          <span>HP</span>
+                          <b id="bossBeastHp">—</b>
+                        </div>
+                        <div class="boss-track">
+                          <span class="boss-track-bar" id="bossBeastHpBar"></span>
+                        </div>
+                      </div>
+
+                      <div class="boss-chips" id="bossBeastStats"></div>
+                      <div class="boss-direction" id="bossBeastDirection"></div>
+
+                      <div class="boss-form">
+                        <label class="boss-field">
+                          <span>Số hit</span>
+                          <input id="bossBeastHits" type="number" min="1" max="50" step="1" inputmode="numeric" value="1" />
+                        </label>
+                        <div class="boss-actions">
+                          <button class="btn btn-primary" id="bossBeastRun" type="button">Xem trước &amp; đánh</button>
+                          <button class="btn btn-ghost boss-stop" id="bossBeastStop" type="button" hidden>Dừng</button>
+                        </div>
+                        <p class="boss-note">Mỗi hit là một request riêng. Nếu chọn nhiều hit, tool tự chờ cooldown.</p>
+                      </div>
+
+                      <div class="boss-progress" id="bossBeastProgress" hidden>
+                        <div class="boss-progress-head">
+                          <span id="bossBeastProgressLabel"></span>
+                          <b id="bossBeastProgressNext"></b>
+                        </div>
+                        <div class="boss-track">
+                          <span class="boss-track-bar" id="bossBeastProgressBar"></span>
+                        </div>
+                        <small id="bossBeastProgressHint"></small>
+                      </div>
+
+                      <div class="boss-result" id="bossBeastResult" hidden></div>
+
+                      <div class="boss-rank-wrap">
+                        <div class="boss-section-head">
+                          <h4>Bảng xếp hạng</h4>
+                          <span class="hint">Top sát thương</span>
+                        </div>
+                        <div class="boss-rank" id="bossBeastRank"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="boss-card" id="bossGuildCard">
+                  <div class="empty boss-card-empty" id="bossGuildEmpty" hidden>
+                    <div class="empty-mark" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l7 3v6c0 4.2-2.8 7.3-7 9-4.2-1.7-7-4.8-7-9V6z" />
+                        <path d="M9 11.5h6M9 15h6" />
+                      </svg>
+                    </div>
+                    <h3 id="bossGuildEmptyTitle">Chưa có guild</h3>
+                    <p id="bossGuildEmptyText">Guild Boss chỉ mở khi tài khoản đã vào guild.</p>
+                  </div>
+
+                  <div class="boss-card-inner" id="bossGuildContent">
+                    <header class="boss-card-head">
+                      <div class="boss-portrait" id="bossGuildPortrait"></div>
+                      <div class="boss-ident">
+                        <div class="boss-title-row">
+                          <h3 id="bossGuildName">Guild Boss</h3>
+                          <span class="boss-badge" id="bossGuildStatus"></span>
+                        </div>
+                        <p id="bossGuildMeta"></p>
+                      </div>
+                    </header>
+
+                    <div class="boss-card-body">
+                      <div class="boss-hp">
+                        <div class="boss-hp-head">
+                          <span>HP</span>
+                          <b id="bossGuildHp">—</b>
+                        </div>
+                        <div class="boss-track">
+                          <span class="boss-track-bar" id="bossGuildHpBar"></span>
+                        </div>
+                      </div>
+
+                      <div class="boss-chips" id="bossGuildStats"></div>
+                      <p class="boss-rewards" id="bossGuildRewards"></p>
+
+                      <div class="boss-form">
+                        <label class="boss-field">
+                          <span>Số hit</span>
+                          <input id="bossGuildHits" type="number" min="1" max="1" step="1" inputmode="numeric" value="1" />
+                        </label>
+                        <div class="boss-actions">
+                          <button class="btn btn-primary" id="bossGuildRun" type="button">Xem trước &amp; đánh</button>
+                          <button class="btn btn-ghost boss-stop" id="bossGuildStop" type="button" hidden>Dừng</button>
+                        </div>
+                        <p class="boss-note">Guild Boss là trao đổi sát thương, không có thắng/thua.</p>
+                      </div>
+
+                      <div class="boss-progress" id="bossGuildProgress" hidden>
+                        <div class="boss-progress-head">
+                          <span id="bossGuildProgressLabel"></span>
+                          <b id="bossGuildProgressNext"></b>
+                        </div>
+                        <div class="boss-track">
+                          <span class="boss-track-bar" id="bossGuildProgressBar"></span>
+                        </div>
+                        <small id="bossGuildProgressHint"></small>
+                      </div>
+
+                      <div class="boss-result" id="bossGuildResult" hidden></div>
+
+                      <div class="boss-rank-wrap">
+                        <div class="boss-section-head">
+                          <h4>Bảng xếp hạng</h4>
+                          <span class="hint">Top sát thương</span>
+                        </div>
+                        <div class="boss-rank" id="bossGuildRank"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="bossFoot">Chọn tài khoản để xem boss.</span>
+              <span class="hint">Mỗi hit là một request riêng. Không tiêu Kim cương, không mua lượt.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-pvp" data-view="pvp" hidden>
+          <header class="topbar">
+            <div>
+              <h1>PvP</h1>
+              <p>Đấu Rank và Cướp vàng. Chỉ đánh đối thủ lực chiến thấp hơn. Không tiêu Kim cương.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnPvpRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="pvp-toolbar">
+              <span class="pvp-synced" id="pvpSynced"></span>
+            </div>
+
+            <div class="pvp-summary" id="pvpSummary" hidden></div>
+
+            <div class="pvp-body">
+              <div class="empty" id="pvpEmpty" hidden>
+                <div class="empty-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 4.5l13 13M19.5 4.5l-13 13" />
+                    <path d="M14.5 4.5h5v5M9.5 4.5h-5v5" />
+                    <path d="M4.5 19.5l4-4M19.5 19.5l-4-4" />
+                  </svg>
+                </div>
+                <h3 id="pvpEmptyTitle">Chưa có tài khoản</h3>
+                <p id="pvpEmptyText">Thêm và đăng nhập một tài khoản để dùng tab PvP.</p>
+              </div>
+
+              <div class="daily-loading" id="pvpLoading" hidden>
+                <span class="spinner"></span>
+                Đang tải…
+              </div>
+
+              <div id="pvpError" hidden></div>
+
+              <div class="pvp-grid" id="pvpState" hidden>
+                <section class="pvp-card" id="pvpRankCard">
+                  <div class="pvp-card-inner">
+                    <header class="pvp-card-head">
+                      <div class="pvp-ident">
+                        <div class="pvp-title-row">
+                          <h3>Đấu Rank</h3>
+                        </div>
+                        <p id="pvpRankOwn">Hạng của bạn: — · Lực chiến: —</p>
+                      </div>
+                    </header>
+
+                    <div class="pvp-card-body">
+                      <p class="pvp-notice">Chỉ chọn đối thủ có lực chiến thấp hơn bạn. Đối thủ mạnh hơn sẽ bị bỏ qua.</p>
+
+                      <div class="pvp-form">
+                        <label class="pvp-field">
+                          <span>Số trận</span>
+                          <input id="pvpRankBattles" type="number" min="1" max="5" step="1" inputmode="numeric" value="1" />
+                        </label>
+                        <div class="pvp-actions">
+                          <button class="btn btn-primary" id="pvpRankPlan" type="button">Quét &amp; xem trước</button>
+                          <button class="btn btn-ghost pvp-stop" id="pvpRankStop" type="button" hidden>Dừng</button>
+                        </div>
+                        <p class="pvp-note">Mỗi trận tốn 1 BP. Thắng sẽ đổi hạng; thua không đổi hạng.</p>
+                      </div>
+
+                      <div class="pvp-progress" id="pvpRankProgress" hidden>
+                        <div class="pvp-progress-head">
+                          <span id="pvpRankProgressLabel"></span>
+                          <b id="pvpRankProgressNext"></b>
+                        </div>
+                        <div class="pvp-track">
+                          <span class="pvp-track-bar" id="pvpRankProgressBar"></span>
+                        </div>
+                        <small id="pvpRankProgressHint"></small>
+                      </div>
+
+                      <div class="pvp-result" id="pvpRankResult" hidden></div>
+
+                      <div class="pvp-list-wrap">
+                        <div class="pvp-section-head">
+                          <h4>Bảng xếp hạng</h4>
+                          <span class="hint">Các hạng gần bạn</span>
+                        </div>
+                        <div class="pvp-list" id="pvpRankList"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="pvp-card" id="pvpPlunderCard">
+                  <div class="pvp-card-inner">
+                    <header class="pvp-card-head">
+                      <div class="pvp-ident">
+                        <div class="pvp-title-row">
+                          <h3>Cướp vàng</h3>
+                        </div>
+                        <p id="pvpPlunderOwn">Lực chiến của bạn: —</p>
+                      </div>
+                    </header>
+
+                    <div class="pvp-card-body">
+                      <p class="pvp-notice">Chỉ chọn mục tiêu có lực chiến thấp hơn. Thắng lấy tối đa 20.000 vàng/trận, 60.000 vàng/người/ngày.</p>
+
+                      <div class="pvp-form">
+                        <label class="pvp-field">
+                          <span>Số trận</span>
+                          <input id="pvpPlunderBattles" type="number" min="1" max="10" step="1" inputmode="numeric" value="1" />
+                        </label>
+                        <div class="pvp-actions">
+                          <button class="btn btn-primary" id="pvpPlunderPlan" type="button">Quét &amp; xem trước</button>
+                          <button class="btn btn-ghost pvp-stop" id="pvpPlunderStop" type="button" hidden>Dừng</button>
+                        </div>
+                        <p class="pvp-note">Mỗi trận tốn 1 BP. Không tiêu Kim cương.</p>
+                      </div>
+
+                      <div class="pvp-progress" id="pvpPlunderProgress" hidden>
+                        <div class="pvp-progress-head">
+                          <span id="pvpPlunderProgressLabel"></span>
+                          <b id="pvpPlunderProgressNext"></b>
+                        </div>
+                        <div class="pvp-track">
+                          <span class="pvp-track-bar" id="pvpPlunderProgressBar"></span>
+                        </div>
+                        <small id="pvpPlunderProgressHint"></small>
+                      </div>
+
+                      <div class="pvp-result" id="pvpPlunderResult" hidden></div>
+
+                      <div class="pvp-list-wrap">
+                        <div class="pvp-section-head">
+                          <h4>Mục tiêu cướp vàng</h4>
+                          <span class="hint">Lực chiến thấp hơn bạn</span>
+                        </div>
+                        <div class="pvp-list" id="pvpPlunderList"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="pvpFoot">Chọn tài khoản để xem PvP.</span>
+              <span class="hint">Chỉ đánh đối thủ lực chiến thấp hơn. Không tiêu Kim cương, không mua BP.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-team" data-view="team" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Đội hình</h1>
+              <p>Xem đủ 10 slot, thông số từng ninja, hệ, bond và tự động chọn đội hình mạnh nhất.</p>
+            </div>
+            <div class="team-actions">
+              <button class="btn btn-ghost" id="btnTeamRefresh" type="button">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                  <path d="M20 4v5h-5" />
+                </svg>
+                Làm mới
+              </button>
+              <button class="btn btn-primary" id="btnStrongest" type="button" disabled>
+                Dùng đội hình mạnh nhất
+              </button>
+            </div>
+          </header>
+
+          <section class="panel">
+            <div class="team-toolbar">
+              <div class="mode-switch" id="teamMode" role="group" aria-label="Kiểu đội hình">
+                <button class="mode-btn active" data-mode="atk" type="button">Ưu tiên Công</button>
+                <button class="mode-btn" data-mode="def" type="button">Ưu tiên Thủ</button>
+              </div>
+              <span class="team-synced" id="teamSynced"></span>
+            </div>
+
+            <div class="team-summary" id="teamSummary" hidden></div>
+            <div class="slot-grid" id="teamSlots"></div>
+
+            <div class="empty" id="teamEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="8" r="3" />
+                  <circle cx="17" cy="9" r="2.2" />
+                  <path d="M3.5 19c.5-3.2 2.6-5 5.5-5s5 1.8 5.5 5" />
+                  <path d="M14.5 19c.3-2.3 1.7-3.7 3.5-3.7s3.2 1.4 3.5 3.7" />
+                </svg>
+              </div>
+              <h3 id="teamEmptyTitle">Chưa có tài khoản</h3>
+              <p id="teamEmptyText">Thêm và đăng nhập một tài khoản để xem đội hình.</p>
+            </div>
+
+            <div class="team-plan" id="teamPlan" hidden></div>
+
+            <footer class="panel-foot">
+              <span id="teamFoot">Chọn tài khoản để xem đội hình.</span>
+              <span class="hint">Bond chỉ đọc được với ninja đang trong đội.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-bag" data-view="bag" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Túi đồ</h1>
+              <p>Ninja, trang bị và vật phẩm trong tài khoản. Dùng vật phẩm hoặc đổi chỗ ninja / trang bị ngay tại đây.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnBagRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="team-toolbar">
+              <div class="mode-switch" id="bagTabs" role="tablist" aria-label="Nhóm đồ">
+                <button class="mode-btn active" data-tab="ninja" type="button" role="tab">Ninja</button>
+                <button class="mode-btn" data-tab="equipment" type="button" role="tab">Trang bị</button>
+                <button class="mode-btn" data-tab="items" type="button" role="tab">Vật phẩm</button>
+                <button class="mode-btn" data-tab="gems" type="button" role="tab">Ngọc</button>
+              </div>
+              <span class="team-synced" id="bagSynced"></span>
+            </div>
+
+            <div class="bag-currency" id="bagCurrency" hidden></div>
+            <div class="bag-grid" id="bagGrid"></div>
+
+            <div class="empty" id="bagEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.5 8.5h13l-1 11a2 2 0 0 1-2 1.8h-7a2 2 0 0 1-2-1.8z" />
+                  <path d="M9 8.5V6.8a3 3 0 0 1 6 0v1.7" />
+                </svg>
+              </div>
+              <h3 id="bagEmptyTitle">Chưa có tài khoản</h3>
+              <p id="bagEmptyText">Thêm và đăng nhập một tài khoản để xem túi đồ.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="bagFoot">Chọn tài khoản để xem túi đồ.</span>
+              <span class="hint">Tag “Đang mặc” và “Trong đội” giúp tránh đổi nhầm.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-gacha" data-view="gacha" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Quay ninja</h1>
+              <p>Luôn quay vòng tốt nhất (80.000 Vàng, đảm bảo 3–5★). Nhập số lượt, không tiêu Kim cương.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnGachaRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="team-toolbar">
+              <span class="team-synced" id="gachaSynced"></span>
+            </div>
+
+            <div class="gacha-summary" id="gachaSummary"></div>
+
+            <div class="train-form" id="gachaForm">
+              <label class="train-field">
+                <span>Số lượt quay</span>
+                <input id="gachaDraws" class="input" type="number" min="1" max="100" step="1" value="1" />
+                <small id="gachaAfford"></small>
+              </label>
+              <button class="btn btn-primary" id="btnGachaDraw" type="button">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg>
+                Quay ninja
+              </button>
+            </div>
+
+            <div class="gacha-results" id="gachaResults"></div>
+
+            <div class="empty" id="gachaEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="8.5" />
+                  <circle cx="12" cy="12" r="2" />
+                  <path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5" />
+                </svg>
+              </div>
+              <h3 id="gachaEmptyTitle">Chưa có tài khoản</h3>
+              <p id="gachaEmptyText">Thêm và đăng nhập một tài khoản để quay ninja.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="gachaFoot">Chọn tài khoản để quay ninja.</span>
+              <span class="hint">Chỉ dùng Vàng. Dừng khi không đủ Vàng cho vòng tốt nhất.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-craftment" data-view="craftment" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Craftment</h1>
+              <p>Nâng cấp ninja và trang bị bằng cách dùng ninja / trang bị khác làm nguyên liệu.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnCraftRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/></svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="team-toolbar">
+              <div class="mode-switch" id="craftTabs" role="tablist" aria-label="Loại nâng cấp">
+                <button class="mode-btn active" data-type="ninja" type="button" role="tab">Ninja</button>
+                <button class="mode-btn" data-type="equip" type="button" role="tab">Trang bị</button>
+              </div>
+              <span class="team-synced" id="craftSynced"></span>
+            </div>
+
+            <div class="craft-summary" id="craftSummary"></div>
+
+            <div class="craft-layout">
+              <div class="craft-targets" id="craftTargets"></div>
+              <div class="craft-detail" id="craftDetail"></div>
+            </div>
+
+            <div class="empty" id="craftEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l5 5M4 20l4.5-1 10-10-3.5-3.5-10 10z"/></svg>
+              </div>
+              <h3 id="craftEmptyTitle">Chưa có tài khoản</h3>
+              <p id="craftEmptyText">Thêm và đăng nhập một tài khoản để nâng cấp.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="craftFoot">Chọn tài khoản để nâng cấp.</span>
+              <span class="hint">Chế độ An toàn chỉ dùng nguyên liệu không có giá trị.</span>
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-logs" data-view="logs" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Nhật ký</h1>
+              <p>Lịch sử đăng nhập, đồng bộ, auto và nhận thưởng của từng tài khoản.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnLogRefresh" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Làm mới
+            </button>
+          </header>
+
+          <section class="panel">
+            <div class="toolbar logs-toolbar">
+              <label class="select-field">
+                <span>Mức độ</span>
+                <select id="logLevel">
+                  <option value="">Tất cả mức độ</option>
+                  <option value="success">Thành công</option>
+                  <option value="info">Thông tin</option>
+                  <option value="warn">Cảnh báo</option>
+                  <option value="error">Lỗi</option>
+                </select>
+              </label>
+              <span class="logs-count" id="logCount"></span>
+            </div>
+
+            <div class="log-list" id="logList"></div>
+
+            <div class="empty" id="logEmpty" hidden>
+              <div class="empty-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M5 6h14M5 12h14M5 18h9" />
+                </svg>
+              </div>
+              <h3>Chưa có nhật ký</h3>
+              <p>Thao tác đăng nhập, đồng bộ, auto hoặc nhận thưởng sẽ được ghi lại tại đây.</p>
+            </div>
+
+            <footer class="panel-foot">
+              <span id="logFoot">Chưa có bản ghi nào.</span>
+              <button class="btn btn-ghost btn-sm" id="btnLogMore" type="button" hidden>Tải thêm</button>
+            </footer>
+          </section>
+        </section>
+        <section class="view" id="view-advisor" data-view="advisor" hidden>
+          <header class="topbar">
+            <div>
+              <h1>Cố vấn</h1>
+              <p>Kế hoạch hôm nay cho từng tài khoản, xếp theo mức ưu tiên. Chỉ đọc, không tiêu tài nguyên.</p>
+            </div>
+            <button class="btn btn-ghost" id="btnAdvisorScanAll" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+                <path d="M20 4v5h-5" />
+              </svg>
+              Quét tất cả
+            </button>
+          </header>
+
+          <section class="panel advisor-panel">
+            <div class="advisor-toolbar">
+              <button class="btn btn-primary" id="btnAdvisorScan" type="button">Quét tài khoản</button>
+              <span class="advisor-synced" id="advisorSynced"></span>
+            </div>
+
+            <div class="advisor-summary" id="advisorSummary" hidden></div>
+
+            <div class="advisor-body">
+              <div class="empty" id="advisorEmpty" hidden>
+                <div class="empty-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M15.2 8.8l-2 4.4-4.4 2 2-4.4z" />
+                  </svg>
+                </div>
+                <h3 id="advisorEmptyTitle">Chưa có tài khoản</h3>
+                <p id="advisorEmptyText">Thêm và đăng nhập một tài khoản để nhận gợi ý.</p>
+              </div>
+
+              <div class="daily-loading" id="advisorLoading" hidden>
+                <span class="spinner"></span>
+                Đang quét trạng thái game…
+              </div>
+
+              <div id="advisorError" hidden></div>
+
+              <div class="advisor-list" id="advisorList"></div>
+            </div>
+
+            <footer class="panel-foot" id="advisorFoot">
+              Quét tất cả sẽ đọc lần lượt từng tài khoản đang đăng nhập, có nghỉ giữa các tài khoản.
+            </footer>
+          </section>
+        </section>
+
+        <section class="view" id="view-bot" data-view="bot" hidden>
+          <header class="topbar">
+            <div>
+              <h1 class="flex items-center gap-2">
+                <span class="topbar-icon">⚙</span> Bot tự động
+              </h1>
+              <p>Chạy tuần tự theo chu kỳ. Chỉ tác động tài khoản đang bật Auto. Cấu hình tự lưu.</p>
+            </div>
+            <div class="bot-head-actions flex items-center gap-2">
+              <span class="bot-status stopped" id="botStatus">Đã dừng</span>
+              <button class="btn btn-ghost btn-icon" id="btnBotRefresh" type="button" title="Làm mới trạng thái">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/></svg>
+              </button>
+              <button class="btn btn-success bot-main-btn" id="btnBotStart" type="button">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+                Chạy bot
+              </button>
+              <button class="btn btn-danger bot-main-btn" id="btnBotStop" type="button" hidden>
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+                Dừng bot
+              </button>
+            </div>
+          </header>
+
+          <div class="bot-hero" id="botHero">
+            <div class="bot-hero-dot"><span></span></div>
+            <div class="bot-hero-copy">
+              <strong>Bot tự động</strong>
+              <small>Trạng thái và nhịp chạy được cập nhật trực tiếp mỗi 5 giây.</small>
+            </div>
+            <button class="btn btn-ghost bot-tick-btn" id="btnBotTick" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+              Chạy 1 vòng ngay
+            </button>
+          </div>
+
+          <div class="bot-summary" id="botSummary"></div>
+
+          <div class="bot-grid">
+            <section class="panel bot-settings">
+              <header class="panel-head">
+                <h2 class="flex items-center gap-2"><span>⚙</span> Cấu hình</h2>
+                <span class="hint">Tự lưu</span>
+              </header>
+              <div class="bot-form">
+                <label class="bot-toggle">
+                  <input type="checkbox" id="botDryRun" />
+                  <span>
+                    <b>Dry-run (an toàn)</b>
+                    <small>Chỉ đọc và báo việc sẽ làm, không gửi lệnh thay đổi.</small>
+                  </span>
+                </label>
+
+                <div class="bot-row">
+                  <label class="bot-field">
+                    <span>Chu kỳ (giây)</span>
+                    <input id="botInterval" type="number" min="30" max="3600" step="30" inputmode="numeric" />
+                  </label>
+                  <label class="bot-field">
+                    <span>Hành động / chu kỳ</span>
+                    <input id="botMaxActions" type="number" min="1" max="5" step="1" inputmode="numeric" />
+                  </label>
+                </div>
+
+                <fieldset class="bot-actions">
+                  <legend>Hành động được phép</legend>
+                  <label><input type="checkbox" id="botAllowDaily" /> <span>🎁 Nhận daily</span></label>
+                  <label><input type="checkbox" id="botAllowStory" /> <span>📖 Cốt truyện</span></label>
+                  <label><input type="checkbox" id="botAllowBoss" /> <span>👹 Boss</span></label>
+                  <label><input type="checkbox" id="botAllowPvp" /> <span>⚔ PvP Rank</span></label>
+                </fieldset>
+
+                <div class="bot-row">
+                  <label class="bot-field">
+                    <span>Cốt truyện / ngày</span>
+                    <input id="botStoryRuns" type="number" min="0" max="200" step="1" inputmode="numeric" />
+                  </label>
+                  <label class="bot-field">
+                    <span>PvP / ngày</span>
+                    <input id="botPvpBattles" type="number" min="0" max="50" step="1" inputmode="numeric" />
+                  </label>
+                </div>
+
+                <p class="bot-note">Lỗi 5 lần liên tiếp sẽ tự treo tài khoản đó cho tới khi chạy lại thủ công.</p>
+              </div>
+            </section>
+
+            <section class="panel bot-accounts">
+              <header class="panel-head">
+                <h2 class="flex items-center gap-2"><span>👥</span> Tài khoản</h2>
+                <span class="hint" id="botEligible"></span>
+              </header>
+              <div class="bot-list" id="botAccounts"></div>
+            </section>
+
+            <section class="panel bot-events">
+              <header class="panel-head">
+                <h2 class="flex items-center gap-2"><span>⚡</span> Hoạt động gần đây</h2>
+                <span class="hint">Tối đa 80 sự kiện</span>
+              </header>
+              <div class="bot-events-list" id="botEvents"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="dialog" id="accountDialog">
+      <form id="accountForm" method="dialog" novalidate>
+        <header class="dialog-head">
+          <h2 id="dialogTitle">Thêm tài khoản</h2>
+          <button class="icon-btn" type="button" data-close aria-label="Đóng">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </header>
+
+        <div class="dialog-body">
+          <label class="field">
+            <span>Tên đăng nhập <b>*</b></span>
+            <input id="fUsername" name="username" type="text" maxlength="64" autocomplete="off" placeholder="vd: naruto01" required />
+          </label>
+
+          <label class="field">
+            <span id="passwordLabel">Mật khẩu <b>*</b></span>
+            <div class="password-wrap">
+              <input id="fPassword" name="password" type="password" maxlength="128" autocomplete="new-password" placeholder="Nhập mật khẩu game" />
+              <button class="reveal" id="togglePassword" type="button" aria-label="Hiện mật khẩu">Hiện</button>
+            </div>
+            <small class="field-hint" id="passwordHint" hidden>Để trống nếu không đổi mật khẩu.</small>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Máy chủ</span>
+              <input id="fServer" name="server" type="text" maxlength="32" value="S1" list="serverList" />
+              <datalist id="serverList">
+                <option value="S1"></option>
+              </datalist>
+            </label>
+            <label class="field">
+              <span>Tên nhân vật</span>
+              <input id="fCharacter" name="characterName" type="text" maxlength="64" placeholder="Không bắt buộc" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Ghi chú</span>
+            <input id="fLabel" name="label" type="text" maxlength="200" placeholder="vd: acc chính, acc farm phụ…" />
+          </label>
+
+          <p class="form-error" id="formError" hidden></p>
+        </div>
+
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" type="button" data-close>Hủy</button>
+          <button class="btn btn-primary" id="btnSave" type="submit">Lưu tài khoản</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="confirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2>Xóa tài khoản?</h2>
+        </header>
+        <div class="dialog-body">
+          <p id="confirmText">Tài khoản sẽ bị xóa khỏi danh sách. Thao tác này không thể hoàn tác.</p>
+        </div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-danger" id="confirmDelete" value="confirm">Xóa</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-lg" id="ninjaDialog">
+      <div class="dialog-head">
+        <h2 id="ninjaDialogTitle">Thông số ninja</h2>
+        <button class="btn btn-ghost btn-icon" type="button" data-close aria-label="Đóng">×</button>
+      </div>
+      <div class="dialog-body ninja-detail" id="ninjaDetail"></div>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="bagActionDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2 id="bagActionTitle">Thao tác</h2>
+        </header>
+        <div class="dialog-body" id="bagActionBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnBagActionConfirm" value="confirm">Xác nhận</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="gachaConfirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2>Xác nhận quay ninja</h2>
+        </header>
+        <div class="dialog-body" id="gachaConfirmBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnGachaConfirm" value="confirm">Quay</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="craftConfirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2>Xác nhận nâng cấp</h2>
+        </header>
+        <div class="dialog-body" id="craftConfirmBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnCraftConfirm" value="confirm">Nâng cấp</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="teamApplyDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2>Áp dụng đội hình?</h2>
+        </header>
+        <div class="dialog-body">
+          <p id="teamApplyText"></p>
+          <p class="hint">Thao tác sẽ đổi ninja và trang bị trong game. Chỉ nên áp dụng khi bạn đã kiểm tra bản xem trước.</p>
+        </div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnConfirmTeamApply" value="confirm">Áp dụng</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="trainingConfirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2 id="trainingConfirmTitle">Xác nhận</h2>
+        </header>
+        <div class="dialog-body" id="trainingConfirmBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnTrainingConfirm" value="confirm">Chạy</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="bossConfirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2 id="bossConfirmTitle">Xác nhận đánh boss</h2>
+        </header>
+        <div class="dialog-body" id="bossConfirmBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnBossConfirm" value="confirm">Đánh</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-sm" id="pvpConfirmDialog">
+      <form method="dialog">
+        <header class="dialog-head">
+          <h2 id="pvpConfirmTitle">Xác nhận PvP</h2>
+        </header>
+        <div class="dialog-body pvp-confirm-body" id="pvpConfirmBody"></div>
+        <footer class="dialog-foot">
+          <button class="btn btn-ghost" value="cancel">Hủy</button>
+          <button class="btn btn-primary" id="btnPvpConfirm" value="confirm">Đánh</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

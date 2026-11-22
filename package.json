@@ -1,0 +1,20 @@
+{
+  "name": "naruto-v2-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cong cu quan ly tai khoan va bot cho Naruto Is Coming",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "mock": "node dev/mock-game-server.js",
+    "css:build": "tailwindcss -i styles/tailwind.input.css -o public/tailwind.css --minify"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

@@ -482,6 +482,8 @@ Three caves rotate by server day:
 
 **Priority:** climb to the highest rank you can **hold** before reset. The Pill income compounds into Potential, which compounds into combat power. Do not burn all BP on unwinnable fights; scout the target's team first.
 
+**Bot policy:** never attack a target whose combat power is **not strictly lower** than ours. Measure it with `P3TeamVisit @TargetUserId` (sum `TotalAtk + TotalDef` of filled slots) and compare with `P3TeamPower.Power`. If power cannot be read, skip the target instead of gambling. This keeps BP spend on fights we should win.
+
 ### 8.2 Plunder (Cướp vàng)
 
 - Pick a target from the list (Gold close to yours) and fight.
@@ -494,6 +496,8 @@ Three caves rotate by server day:
 Observed: `NoGold` can appear even when the target profile shows Gold; this is a protection/stealable-Gold rule, not necessarily a zero balance. Pick another target instead of retrying.
 
 **Priority:** plunder is a Gold faucet, but it is also the most socially visible PvP action. Attack only eligible targets, respect the daily cap, and do not harass the same player.
+
+**Bot policy:** same power rule as Rank — only targets with strictly lower combat power, scouted via `P3TeamVisit`; skip unknown-power and stronger targets. On `NoGold`, move to the next target instead of retrying the same one.
 
 ### 8.3 Guild Battle (Bang hội Chiến)
 

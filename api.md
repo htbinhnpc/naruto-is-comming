@@ -1043,6 +1043,8 @@ type Stage = {
 - Daily Top 100 receive Chakra Pills by mail; the amount depends on final rank.
 - Companion reads: `P2RankList` (nearby ranks, 10 rows), `P2RankTop20`, `P3UltimateRank`.
 
+> **Opponent combat power.** Neither `P2RankList` nor `plunder-list` returns a power field. `P3TeamVisit @TargetUserId = <id>` returns the opponent's slots with `TotalAtk` and `TotalDef`; summing both over rows where `NinjaId` is not null gives team combat power. Compare it with your own `P3TeamPower.Power` to implement a "only attack weaker opponents" filter. Visiting a target costs no BP/Energy.
+
 #### `POST /api1/api/battle/plunder`
 
 **Request:** `{ "targetUserId": 49 }`
