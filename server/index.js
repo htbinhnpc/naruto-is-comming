@@ -1310,11 +1310,11 @@ async function handleApi(req, res, url) {
           runLog({
             done: result.completed,
             total: result.requested,
-            cost: [`Gold: ${formatNumber(result.goldSpent ?? 0)}`, `Vòng: btn ${result.tier.btn} (3–5★)`],
+            cost: [`Gold: ${formatNumber(result.goldSpent ?? 0)}`, `Vòng: btn ${result.tier.btn} (3–5 sao)`],
             gain: result.results
               .filter((entry) => entry.ok)
               .map((entry) =>
-                `${entry.name || `ninja #${entry.ninja}`} ${entry.star ?? '?'}★`,
+                `${entry.name || `ninja #${entry.ninja}`} ${entry.star ?? '?'} sao`,
               ),
             stopReason: result.stopReason,
           }),

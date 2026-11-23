@@ -2092,10 +2092,11 @@ function starImage(star) {
       class: 'star-img',
       src: `/assets/star/${value}.png`,
       alt: `${value} sao`,
+      title: `${value} sao`,
       loading: 'lazy',
     });
   }
-  return el('span', { text: value > 0 ? `${value}★` : '—' });
+  return el('span', { text: value > 0 ? `${value} sao` : '—' });
 }
 
 function elementBadge(attribute) {
@@ -2363,7 +2364,7 @@ function openNinjaDetail(ninja) {
     ['Thủ trang bị', formatNumber(ninja.equipDef), 'cộng thẳng'],
     ['Bond Công', `${ninja.bondAtkPct || 0}%`, 'nhân vào Công gốc'],
     ['Bond Thủ', `${ninja.bondDefPct || 0}%`, 'nhân vào Thủ gốc'],
-    ['Sao / Ascend', `${ninja.star}★ / ${ninja.ascend}`, 'tiến hoá'],
+    ['Sao / Ascend', `${ninja.star} / ${ninja.ascend}`, 'tiến hoá'],
   ];
 
   const grid = el('div', { class: 'detail-grid' });
@@ -2371,7 +2372,12 @@ function openNinjaDetail(ninja) {
     grid.append(
       el('div', { class: 'detail-stat' }, [
         el('span', { text: label }),
-        el('b', { text: value }),
+        label === 'Sao / Ascend'
+          ? el('b', { class: 'detail-stars' }, [
+              starImage(ninja.star),
+              ` / ${ninja.ascend}`,
+            ])
+          : el('b', { text: value }),
         el('small', { text: note }),
       ]),
     );
@@ -2392,8 +2398,10 @@ function openNinjaDetail(ninja) {
             item.name,
             el('span', {
               class: 'bond-type',
-              text: `${item.typeName} · Lv ${item.lv ?? '—'} · ${item.star ?? '—'}★`,
-            }),
+            }, [
+              `${item.typeName} · Lv ${item.lv ?? '—'} · `,
+              starImage(item.star),
+            ]),
           ]),
           el('p', {
             text: `Atk +${formatNumber(item.atk)} · Def +${formatNumber(item.def)}`,
@@ -2689,7 +2697,9 @@ function safeImage(src, alt, className = '', options = {}) {
 }
 
 function bagTag(text, className = '') {
-  return el('span', { class: `bag-tag ${className}`.trim(), text });
+  return el('span', { class: `bag-tag ${className}`.trim() }, [
+    text?.nodeType ? text : String(text ?? ''),
+  ]);
 }
 
 function renderBagCurrency(currency) {
@@ -2944,7 +2954,7 @@ function bagGemCard(gem) {
     ]),
     el('div', { class: 'bag-tags' }, [
       bagTag(`Còn ${formatNumber(gem.quantity)}`),
-      gem.star ? bagTag(`${gem.star}★`) : null,
+      gem.star ? bagTag(starImage(gem.star)) : null,
     ]),
   ]);
 
@@ -3389,8 +3399,8 @@ function craftCard(item, selected, onPick) {
     ...[
       el('strong', { text: item.name }),
       el('span', { class: 'craft-card-meta' }, [
-        el('b', { text: `${item.star ?? '?'}★` }),
-        ` · Lv ${item.level ?? '?'}`,
+        starImage(item.star),
+        `Lv ${item.level ?? '?'}`,
       ]),
       item.equipped
         ? el('span', { class: 'craft-card-tag', text: 'Đang có' })
@@ -3485,9 +3495,10 @@ function renderCraftDetail() {
       : null,
     el('div', {}, [
       el('strong', { text: target.name }),
-      el('small', {
-        text: `${target.star ?? '?'}★ · Lv ${target.level ?? '?'} · EXP ${formatNumber(target.exp ?? 0)}`,
-      }),
+      el('small', {}, [
+        starImage(target.star),
+        `Lv ${target.level ?? '?'} · EXP ${formatNumber(target.exp ?? 0)}`,
+      ]),
     ]),
   ]);
   els.craftDetail.append(head);
@@ -3588,7 +3599,10 @@ function renderCraftDetail() {
           box,
           item.img ? el('img', { src: item.img, alt: '' }) : null,
           el('span', { text: item.name }),
-          el('small', { text: `${item.star ?? '?'}★ · +${item.exp} EXP` }),
+          el('small', {}, [
+            starImage(item.star),
+            `+${item.exp} EXP`,
+          ]),
           item.valuable ? el('span', { class: 'craft-card-tag', text: 'Có giá trị' }) : null,
         ]),
       );
@@ -3778,7 +3792,7 @@ async function loadGacha({ force = false } = {}) {
 
 function gachaChip(label, value, tone = '') {
   return el('span', { class: `train-chip ${tone}`.trim() }, [
-    el('b', { text: String(value) }),
+    el('b', {}, [value?.nodeType ? value : String(value)]),
     el('span', { text: label }),
   ]);
 }
@@ -3835,7 +3849,7 @@ function renderGacha() {
 
   if (data) {
     els.gachaSummary.append(
-      gachaChip('Vòng tốt nhất', `btn ${bestTier?.btn ?? 4} · 3–5★`, 'accent'),
+      gachaChip('Vòng tốt nhất', `btn ${bestTier?.btn ?? 4} · 3–5 sao`, 'accent'),
       gachaChip('Giá / lượt', formatNumber(cost)),
       gachaChip('Vàng hiện có', formatNumber(gold), 'good'),
       gachaChip(
@@ -3870,7 +3884,7 @@ function renderGachaResult(result) {
         `${result.completed}/${result.requested}`,
         result.completed > 0 ? 'good' : 'bad',
       ),
-      gachaChip('Cao nhất', `${result.bestStars}★`, result.bestStars >= 4 ? 'accent' : ''),
+      gachaChip('Cao nhất', starImage(result.bestStars), result.bestStars >= 4 ? 'accent' : ''),
       gachaChip('Vàng đã tiêu', formatNumber(result.goldSpent ?? 0)),
       gachaChip(
         'Kết quả',
@@ -3895,7 +3909,9 @@ function renderGachaResult(result) {
     }
     card.append(
       el('span', { class: 'gacha-card-draw', text: `#${entry.draw}` }),
-      el('strong', { class: 'gacha-card-star', text: entry.ok ? `${entry.star ?? '?'}★` : 'Lỗi' }),
+      el('strong', { class: 'gacha-card-star' }, [
+        entry.ok ? starImage(entry.star) : 'Lỗi',
+      ]),
       el('small', {
         class: 'gacha-card-meta',
         text: entry.ok
@@ -3930,7 +3946,7 @@ function openGachaConfirm() {
   const list = el('dl', { style: 'display:flex;flex-direction:column;gap:9px;margin:0' });
   const lines = [
     { label: 'Tài khoản', value: account.characterName || account.username },
-    { label: 'Vòng quay', value: `btn ${data.bestTier?.btn ?? 4} · 3–5★ (tốt nhất)` },
+    { label: 'Vòng quay', value: `btn ${data.bestTier?.btn ?? 4} · 3–5 sao (tốt nhất)` },
     {
       label: 'Số lượt',
       value: `${draws} lượt${planned < draws ? ` (dự kiến quay ${planned})` : ''}`,
@@ -3973,7 +3989,7 @@ async function requestGachaDraw(draws) {
     const r = payload.result;
     state.gacha.result = { ...r, accountId: account.id };
     toast(
-      `Quay ninja: ${r.completed}/${r.requested} lượt, cao nhất ${r.bestStars}★` +
+      `Quay ninja: ${r.completed}/${r.requested} lượt, cao nhất ${r.bestStars} sao` +
         (r.stopReason ? ` · ${gachaStopLabel(r.stopReason)}` : ''),
       r.completed > 0 ? 'success' : 'warn',
     );
@@ -5660,7 +5676,7 @@ function renderUltimateResult() {
     rows.append(
       el('div', { class: `train-result-row ${stateClass}` }, [
         el('b', { text: `#${index + 1} Tầng ${battle.stageNo}` }),
-        el('span', { text: `${formatNumber(battle.star)}★` }),
+        el('span', { class: 'train-stars' }, [starImage(battle.star)]),
         el('span', { text: `${trainGain(battle.gold)} vàng` }),
         el('span', { text: `Tầng sau ${formatNumber(battle.stageAfter)}` }),
         battle.pendingBuff

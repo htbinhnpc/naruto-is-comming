@@ -7133,3 +7133,67 @@ select {
   .craft-layout { grid-template-columns: minmax(0, 1fr); }
   .craft-targets { max-height: 320px; }
 }
+
+/* ------------------------------ Star ratings ------------------------------ */
+
+.star-img {
+  height: 13px;
+  width: auto;
+  display: inline-block;
+  vertical-align: -1px;
+  object-fit: contain;
+}
+
+.craft-card-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.craft-card-meta .star-img {
+  height: 13px;
+}
+
+.craft-detail-head small {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.craft-detail-head small .star-img {
+  height: 14px;
+}
+
+.craft-fuel-row small {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.craft-fuel-row small .star-img {
+  height: 12px;
+}
+
+.gacha-card-star .star-img {
+  height: 16px;
+}
+
+.train-result-row .star-img,
+.train-stars .star-img {
+  height: 11px;
+}
+
+.detail-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.detail-stat .star-img {
+  height: 11px;
+}
+
+.bond-type .star-img {
+  height: 9px;
+  vertical-align: 0;
+}

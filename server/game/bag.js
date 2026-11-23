@@ -197,7 +197,7 @@ export function describeUseResults(results) {
     const result = Number(row.Result);
     if (result === 2) {
       messages.push(
-        `Mở được ${row.Name || row.Name2 || 'vật phẩm'}${row.Star ? ` ${row.Star}★` : ''}.`,
+        `Mở được ${row.Name || row.Name2 || 'vật phẩm'}${row.Star ? ` ${row.Star} sao` : ''}.`,
       );
     } else if (result === 6) {
       messages.push('Không dùng được: đã đạt giới hạn ngày hoặc trạng thái không phù hợp.');

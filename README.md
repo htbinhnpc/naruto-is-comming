@@ -55,7 +55,7 @@ curl -X POST http://127.0.0.1:4001/api/mock/scenario \
 - **Tab PvP**: **Đấu Rank** và **Cướp vàng**; chỉ chọn đối thủ có lực chiến thấp hơn, xem trước danh sách sẽ đánh, tự dừng khi thua/hết BP/hết mục tiêu. Không tiêu Kim cương, không mua BP.
 - **Tab Đội hình**: xem đủ 10 slot (kể cả slot chưa mở), hệ, bậc, vai trò Công/Thủ, bond, trang bị và thông số đầy đủ của từng ninja; tự chọn đội hình mạnh nhất theo hướng Công hoặc Thủ.
 - **Tab Túi đồ**: xem ninja sở hữu, trang bị và vật phẩm; tag **Trong đội** / **Đang mặc**; dùng vật phẩm trực tiếp (có nút **Max**); đổi chỗ ninja và chuyển/tháo trang bị. Tab Vật phẩm chỉ hiện vật phẩm thật, không lẫn ninja/trang bị.
-- **Tab Quay ninja**: nhập số lượt, luôn quay vòng tốt nhất (`btn 4` – 80.000 Vàng, đảm bảo 3–5★), dừng khi hết Vàng, chỉ dùng Vàng.
+- **Tab Quay ninja**: nhập số lượt, luôn quay vòng tốt nhất (`btn 4` – 80.000 Vàng, đảm bảo 3–5 sao), dừng khi hết Vàng, chỉ dùng Vàng.
 - **Tab Craftment**: nâng cấp ninja / trang bị bằng nguyên liệu, 3 chế độ An toàn / Tất cả / Thủ công, dừng ở trần level, có nút **Max**.
 - **Tab Nhật ký**: mọi hoạt động ghi theo 4 dòng `Tiến trình` / `Cost` / `Gain` / `Đã hoàn thành` hoặc `Đã dừng: <lý do>`; lọc theo mức độ, tải thêm theo trang.
 - **Một tài khoản dùng chung**: chọn tài khoản ngay trên thanh điều hướng trên cùng (dropdown cố định); mọi tab tự tải lại theo tài khoản đã chọn, không cần dropdown riêng.

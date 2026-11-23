@@ -6,17 +6,17 @@ import { isFatalGameError } from './client.js';
  * Quay ninja (Recruit Hall / house-draw).
  *
  * api.md: btn 1/2/3/4 = 1.000 / 5.000 / 30.000 / 80.000 Vàng.
- * Vòng 80.000 (btn 4) là vòng duy nhất đảm bảo ra ninja 3-5★, nên tool
+ * Vòng 80.000 (btn 4) là vòng duy nhất đảm bảo ra ninja 3-5 sao, nên tool
  * luôn quay vòng này. Không tiêu Kim cương, không mua lượt.
  */
 
 const DRAW_GAP_MS = 250;
 
 export const HOUSE_DRAW_TIERS = [
-  { btn: 1, cost: 1000, label: '1.000 Vàng', note: '1★+' },
-  { btn: 2, cost: 5000, label: '5.000 Vàng', note: '1★+' },
-  { btn: 3, cost: 30000, label: '30.000 Vàng', note: '1★+' },
-  { btn: 4, cost: 80000, label: '80.000 Vàng', note: '3–5★', best: true },
+  { btn: 1, cost: 1000, label: '1.000 Vàng', note: '1 sao+' },
+  { btn: 2, cost: 5000, label: '5.000 Vàng', note: '1 sao+' },
+  { btn: 3, cost: 30000, label: '30.000 Vàng', note: '1 sao+' },
+  { btn: 4, cost: 80000, label: '80.000 Vàng', note: '3–5 sao', best: true },
 ];
 
 export const BEST_DRAW_TIER =
@@ -178,7 +178,7 @@ export function describeDraw(entry) {
   const label = entry.name
     ? `${entry.name} (#${entry.ninja ?? '?'})`
     : `ninja #${entry.ninja ?? '?'}`;
-  return `Lượt ${entry.draw}: ${label} ${entry.star ?? '?'}★`;
+  return `Lượt ${entry.draw}: ${label} ${entry.star ?? '?'} sao`;
 }
 
 export function describeStopReason(reason) {
